@@ -1,14 +1,16 @@
 import React, { useState } from "react"
+import FormInput from "../form-input/FormInput"
+import CustomButton from "../custom-button/CustomButton"
 
 import "./sign-in-styles.scss"
 
-const SignIn = (props) => {
+const SignIn = () => {
     const [user, setUser] = useState({
         email: '',
         password: ''
     })
 
-const handleSubmit = event => { 
+const handleSubmit = (event) => { 
     event.preventDefault();
     setUser({
         email: '',
@@ -16,9 +18,11 @@ const handleSubmit = event => {
     })
 }
 
-const handleChange = event => {
-    const { value, name } = event.target;
-    setUser({ [name]: value})
+const handleChange = (event) => {
+   setUser({
+        ...user, 
+        [event.currentTarget.id]: event.currentTarget.value
+   })
 }
 
     return (
@@ -27,24 +31,24 @@ const handleChange = event => {
             <span>Sign in with your email and password</span>
 
             <form onSubmit={handleSubmit}>
-                <input 
+                <FormInput 
                     name="email" 
+                    id="email"
                     type="email"
+                    label="email"
                     value={user.email}
-                    onChange={handleChange}
-                    required
+                    handleChange={handleChange}
                 />
-                <label>Email</label>
-                   <input 
+                <FormInput
                     name="password" 
+                    id="password"
                     type="password"
-                    onChange={handleChange}
-                    value={user.email}
-                    required
+                    label="password"
+                    handleChange={handleChange}
+                    value={user.password}
                 />
-                <label>Password</label>
-
-                <input type="submit" value="Submit Form" />
+                <br/>
+                <CustomButton type="submit"> Sign In </CustomButton>
             </form>
         </div>
     )
