@@ -17,7 +17,6 @@ const PreviewCollection = (props) => {
                                 name={item.name}
                                 price={item.price}
                                 imageUrl={item.imageUrl}
-
                             /> 
                         )
                     })

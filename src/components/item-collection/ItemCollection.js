@@ -12,10 +12,8 @@ const ItemCollection = (props) => {
                 }}
             />
             <div className="footer-collection">
-                <span>
-                    <div className="name"> {props.name} </div>
-                    <div className="price"> $ {props.price} </div>
-                </span>
+                <div className="name"> {props.name} </div>   
+                <div className="price"> ${props.price} </div>
             </div>
         </div>
     )
