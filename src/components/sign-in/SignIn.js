@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import FormInput from "../form-input/FormInput"
 import CustomButton from "../custom-button/CustomButton"
-
 import { auth } from "../../firebase/firebase.utils"
 import { signInWithGoogle } from "../../firebase/firebase.utils"
 
