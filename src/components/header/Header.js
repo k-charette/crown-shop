@@ -5,7 +5,7 @@ import { auth } from "../../firebase/firebase.utils"
 import "./header-styles.scss"
 
 const Header = (props) => {
-
+   
     return (
         <div className="header">
             <Link to="/">
@@ -15,7 +15,7 @@ const Header = (props) => {
                 <Link to="/shop" className="option">
                     SHOP
                 </Link>
-                <Link to="/shop" className="option">
+                <Link to="" className="option">
                     CONTACT
                 </Link>
                 <Link to="/registration" className="option">SIGN IN</Link>   
