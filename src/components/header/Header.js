@@ -1,11 +1,12 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { connect } from "react-redux"
 import { auth } from "../../firebase/firebase.utils"
 
 import "./header-styles.scss"
 
 const Header = (props) => {
-   
+
     return (
         <div className="header">
             <Link to="/">
@@ -17,12 +18,23 @@ const Header = (props) => {
                 </Link>
                 <Link to="" className="option">
                     CONTACT
-                </Link>
-                <Link to="/registration" className="option">SIGN IN</Link>   
-                <div className="option" onClick={() => auth.signOut()}> SIGN OUT </div> 
+                </Link> 
+                {
+                    props.currentUser ? 
+                    (
+                        <div className="option" onClick={() => auth.signOut()}> SIGN OUT </div>  
+                       
+                    ) : (
+                        <Link to="/registration" className="option">SIGN IN</Link>  
+                    )
+                }
             </div>
         </div>
     )
 }
 
-export default Header
+const mapStateToProps = state => ({
+    currentUser: state.user.currentUser
+})
+
+export default connect(mapStateToProps)(Header)
