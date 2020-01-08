@@ -4,16 +4,17 @@ import ItemCollection from "../item-collection/ItemCollection"
 
 import "./preview-collection-styles.scss"
 
-const PreviewCollection = (props) => {
+const PreviewCollection = ({ title, items }) => {
 
     return (
         <div className="preview-collection">
-            <h1 className="title">{props.title.toUpperCase()}</h1>
+            <h1 className="title">{title.toUpperCase()}</h1>
             <div className="preview">
                 {
-                    props.items.filter((item, index) => index < 4 ).map(item => {
+                    items.filter((item, index) => index < 4 ).map(item => {
                         return (
                             <ItemCollection key={item.id}
+                                item={item}
                                 name={item.name}
                                 price={item.price}
                                 imageUrl={item.imageUrl}
