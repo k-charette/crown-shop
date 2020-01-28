@@ -1,24 +1,11 @@
-import React, { useState } from "react"
-import SHOP_DATA from './shop-data.js'
-import PreviewCollection from "../../components/preview-collection/PreviewCollection"
+import React from "react"
+import CollectionsOverview from "../../components/collections-overview/CollectionsOverview"
 
-const Shop = (props) => {
-
-    const [collections] = useState([SHOP_DATA])
+const Shop = ({ collections }) => {
 
     return (
         <div className="shop-page">
-            {
-            collections[0].map(collection => {
-                return(
-                    <PreviewCollection 
-                        key={collection.id}
-                        title={collection.title}
-                        items={collection.items}
-                    />
-                )
-            })
-            }
+            <CollectionsOverview />
         </div>
     )
 }
