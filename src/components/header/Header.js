@@ -1,6 +1,7 @@
 import React from "react"
 import CartIcon from "../cart-icon/CartIcon"
 import CartDropdown from "../cart-dropdown/CartDropdown"
+import { ReactComponent as Logo } from "../../assets/crown.svg"
 import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 import { createStructuredSelector } from "reselect"
@@ -14,8 +15,8 @@ const Header = ({ currentUser, hidden }) => {
 
     return (
         <div className="header">
-            <Link to="/">
-                <i className="fas fa-crown"></i>
+            <Link className="logo-container" to="/">
+                <Logo className="logo" />
             </Link>
             <div className="options">
                 <Link to="/shop" className="option">
