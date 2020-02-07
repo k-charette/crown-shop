@@ -60,8 +60,6 @@ export const addCollectionAndDocuments = async (
 	return await batch.commit();
 };
 
-firebase.initializeApp(config);
-
 //function will get the whole snapshot to be converted into an object
 export const convertCollectionsSnapshotToMap = collections => {
 	const transformedCollection = collections.docs.map(doc => {
@@ -75,18 +73,18 @@ export const convertCollectionsSnapshotToMap = collections => {
 			items
 		};
 	});
-	return transformedCollection.reduce((acc, collection) => {
-		acc[collection.title.toLowerCase()] = collection;
-		return acc;
+	return transformedCollection.reduce((accumulator, collection) => {
+		accumulator[collection.title.toLowerCase()] = collection;
+		return accumulator;
 	}, {});
 };
 
+firebase.initializeApp(config);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
 //setting up google auth
 const provider = new firebase.auth.GoogleAuthProvider();
-
 provider.setCustomParameters({ prompt: "select_account" });
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
