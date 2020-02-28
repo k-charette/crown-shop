@@ -41,12 +41,12 @@ export const signUpStart = userInfo => ({
 	payload: userInfo
 });
 
-export const signUpSuccess = user => ({
+export const signUpSuccess = ({ user, additionalData }) => ({
 	type: UserActionTypes.SIGN_UP_SUCCESS,
-	payload: user
+	payload: { user, additionalData }
 });
 
-export const signUpFailre = error => ({
+export const signUpFailure = error => ({
 	type: UserActionTypes.SIGN_UP_FAILURE,
 	payload: error
 });
